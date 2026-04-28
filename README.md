@@ -16,6 +16,5 @@ curl -X POST -d "hi" http://localhost:8080/chat
 
 
 ## Features
-- Pure Go, super fast
-- Output parsing
-- Not much tbh
+- Pure Go standard library, super fast
+- Output parsing from Gemini by loading JSON into internal structs
