@@ -4,16 +4,28 @@ import (
 	"bytes"
 	"encoding/json"
 	"errors"
+	"log"
 	"net/http"
 	"os"
+
+	"github.com/joho/godotenv"
 )
 
 func CallGemini(query string) (*http.Response, error) {
-	url := os.Getenv("GEMINI_URL")
-	api_key := os.Getenv("GOOGLE_API_KEY")
-	if url == "" || api_key == "" {
-		return nil, errors.New("GEMINI_URL or GOOGLE_API_KEY not found.")
+	// Load .env file
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file")
 	}
+
+	// Get env vars
+	url := os.Getenv("GEMINI_URL")
+	api_key := os.Getenv("GEMINI_API_KEY")
+	if url == "" || api_key == "" {
+		return nil, errors.New("GEMINI_URL or GEMINI_API_KEY not found.")
+	}
+
+	// Build da request
 	reqBody := BuildRequest(query)
 	data, err := json.Marshal(reqBody)
 	if err != nil {

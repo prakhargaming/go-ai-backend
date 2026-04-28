@@ -4,6 +4,10 @@ type GeminiRequest struct {
 	Contents []Content `json:"contents"`
 }
 
+type GeminiResponse struct {
+	Candidates []Content `json:"candidates"`
+}
+
 type Content struct {
 	Parts []Part `json:"parts"`
 }
