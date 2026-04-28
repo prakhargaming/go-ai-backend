@@ -5,7 +5,11 @@ type GeminiRequest struct {
 }
 
 type GeminiResponse struct {
-	Candidates []Content `json:"candidates"`
+	Candidates []Candidate `json:"candidates"`
+}
+
+type Candidate struct {
+	Content Content `json:"content"`
 }
 
 type Content struct {

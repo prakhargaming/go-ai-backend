@@ -45,10 +45,10 @@ func handleRequest(w http.ResponseWriter, r *http.Request) {
 	var result GeminiResponse
 	err_dec := json.NewDecoder(resp.Body).Decode(&result)
 	if err_dec != nil {
-		http.Error(w, "Could not decode response", http.StatusBadRequest)
+		http.Error(w, "Could not decode response"+err_gem.Error(), http.StatusBadRequest)
 		return
 	}
 
-	contents := result.Candidates[0].Parts[0].Text
+	contents := result.Candidates[0].Content.Parts[0].Text
 	w.Write([]byte(contents))
 }
