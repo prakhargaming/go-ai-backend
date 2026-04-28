@@ -1,6 +1,6 @@
 # Pure Golang AI Backend
 ---
-This repo is meant to be a learning exercise for to handle making API requests in pure Go. It was fun.
+This repo is meant to be a learning exercise for to handle making API requests in the pure Go standard library. It was fun.
 
 ## Instructions
 Start the repo with
